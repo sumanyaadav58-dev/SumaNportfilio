@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Suman Yadav | MCA Student, Python and NLP Developer</title>
+<meta name="description" content="Portfolio of Suman Yadav, MCA student at Chandigarh University building chatbots, NLP tools and web apps.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{background:#070b1c}
+body{margin:0;font:16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:#fff;background:#070b1c}
+a{color:inherit}
+:focus-visible{outline:3px solid #f472b6;outline-offset:3px}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:calc(12px + env(safe-area-inset-top,0px)) 22px 12px;background:linear-gradient(180deg,rgba(7,11,28,.85),transparent)}
+.logo{font-weight:800;letter-spacing:-.01em;text-decoration:none}
+.logo span{background:linear-gradient(90deg,#818cf8,#f472b6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.links{display:flex;gap:2px;flex-wrap:wrap}
+.links button{background:none;border:0;color:#c7d2fe;font:inherit;font-weight:600;font-size:.9rem;padding:6px 11px;border-radius:99px;cursor:pointer;transition:background .2s,color .2s,transform .2s}
+.links button:hover{background:rgba(129,140,248,.25);color:#fff;transform:translateY(-2px)}
+.links button.on{background:linear-gradient(90deg,#6366f1,#ec4899);color:#fff}
+.bar{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:linear-gradient(90deg,#818cf8,#f472b6,#fbbf24)}
+.story{position:relative}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#070b1c}
+#net{position:absolute;inset:0;width:100%;height:100%}
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:84px 24px 40px;text-align:center;opacity:0;transform:translateY(40px) scale(.97);transition:opacity .6s,transform .6s;pointer-events:none;background:radial-gradient(circle at 22% 22%,hsl(var(--h) 85% 55%/.5),transparent 58%),radial-gradient(circle at 80% 82%,hsl(calc(var(--h) + 70) 85% 55%/.4),transparent 55%)}
+.scene.on{opacity:1;transform:none;pointer-events:auto}
+.big{font-size:clamp(2rem,6vw,4.4rem);font-weight:800;max-width:920px;line-height:1.08;margin:0;letter-spacing:-.02em}
+.big b{background:linear-gradient(90deg,#818cf8,#f472b6,#fbbf24);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{margin:0;font-size:clamp(1.05rem,2.4vw,1.35rem);color:#e0e7ff;max-width:640px}
+.kick{margin:0;color:#a5b4fc;font-weight:600}
+.cursor{display:inline-block;width:3px;height:1.1em;background:#f472b6;vertical-align:-.2em;margin-left:3px;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-block;text-decoration:none;font:inherit;font-weight:700;font-size:.95rem;padding:11px 22px;border-radius:99px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;cursor:pointer;transition:transform .18s,box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(236,72,153,.35);background:rgba(255,255,255,.16)}
+.btn.pri{background:linear-gradient(90deg,#6366f1,#ec4899);border-color:transparent}
+.chat{display:grid;gap:10px;width:min(480px,100%)}
+.msg{max-width:84%;padding:10px 16px;border-radius:18px;text-align:left;opacity:0;transform:translateY(14px) scale(.95);transition:opacity .4s,transform .4s}
+.msg.in{opacity:1;transform:none}
+.msg.u{justify-self:end;background:linear-gradient(90deg,#ec4899,#f59e0b);border-bottom-right-radius:4px}
+.msg.b{justify-self:start;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-bottom-left-radius:4px}
+.words{font-size:clamp(1.3rem,3.6vw,2.3rem);font-weight:700;line-height:1.3;max-width:860px;margin:0}
+.words span{color:rgba(255,255,255,.22);transition:color .3s}.words span.lit{color:#fff}
+.stats{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+.stat{min-width:140px;padding:14px 20px;border-radius:16px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);transition:transform .2s,background .2s}
+.stat:hover{transform:translateY(-5px);background:rgba(255,255,255,.14)}
+.stat b{display:block;font-size:2rem;line-height:1.1}.stat span{color:#c7d2fe;font-size:.9rem}
+.stat:nth-child(1) b{color:#818cf8}.stat:nth-child(2) b{color:#f472b6}.stat:nth-child(3) b{color:#fbbf24}.stat:nth-child(4) b{color:#34d399}
+.sk{width:min(620px,100%);display:grid;gap:12px;text-align:left}
+.sk div.l{display:flex;justify-content:space-between;font-weight:600;font-size:.95rem;margin-bottom:4px}
+.track{height:10px;border-radius:9px;background:rgba(255,255,255,.14);overflow:hidden}
+.track i{display:block;height:100%;width:0;border-radius:9px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;max-width:640px}
+.chip{padding:3px 13px;border-radius:99px;font-size:.88rem;border:1px solid rgba(255,255,255,.3);transition:transform .15s,background .15s}
+.chip:hover{transform:translateY(-3px) scale(1.06);background:#6366f1}
+.view{width:100%;max-width:1100px;overflow:hidden;padding:12px 4px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
+.rail{display:flex;gap:18px;width:max-content;padding:0 6vw;will-change:transform}
+.card{position:relative;width:min(300px,76vw);text-align:left;padding:20px;border-radius:18px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.22);border-top:4px solid var(--c);backdrop-filter:blur(6px);display:flex;flex-direction:column;gap:10px;transition:transform .12s ease-out,box-shadow .25s}
+.card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .25s;background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),rgba(244,114,182,.28),transparent 65%)}
+.card:hover::after{opacity:1}.card:hover{box-shadow:0 16px 40px rgba(99,102,241,.4)}
+.card h3{margin:0;font-size:1.1rem;word-break:break-word}.card p{margin:0;color:#dbe0ff;font-size:.93rem;flex:1}
+.tag{align-self:flex-start;font-size:.78rem;font-weight:700;padding:2px 11px;border-radius:99px;background:var(--c);color:#0b1020}
+.tl{list-style:none;margin:0;padding:0 0 0 24px;border-left:3px solid rgba(255,255,255,.25);display:grid;gap:20px;text-align:left;width:min(560px,100%)}
+.tl li{position:relative;opacity:0;transform:translateX(-20px);transition:opacity .5s,transform .5s}.tl li.in{opacity:1;transform:none}
+.tl li::before{content:"";position:absolute;left:-33px;top:6px;width:14px;height:14px;border-radius:50%;background:linear-gradient(135deg,#818cf8,#f472b6)}
+.tl b,.tl span,.tl em{display:block}.tl span{color:#c7d2fe}.tl em{color:#34d399;font-style:normal;font-weight:600;font-size:.9rem}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;width:min(900px,100%);text-align:left}
+.box{padding:18px 22px;border-radius:18px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.22)}
+.box h3{margin:0 0 8px}.box ul{margin:0;padding-left:20px}
+.box li{margin-bottom:6px;opacity:0;transform:translateY(10px);transition:opacity .4s,transform .4s}.box li.in{opacity:1;transform:none}
+form{display:grid;gap:10px;width:min(460px,100%);text-align:left}
+label{display:grid;gap:4px;font-weight:600;font-size:.9rem}
+input,textarea{font:inherit;color:#fff;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);border-radius:12px;padding:10px 14px;width:100%}
+input::placeholder,textarea::placeholder{color:#aab4e6}
+#status{margin:0;min-height:1.4em;font-weight:600;color:#6ee7b7}
+.dots{position:absolute;right:16px;top:50%;transform:translateY(-50%);display:grid;gap:10px;z-index:5}
+.dots i{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.3);transition:background .3s,transform .3s}.dots i.on{background:#f472b6;transform:scale(1.4)}
+.hint{position:absolute;bottom:calc(18px + env(safe-area-inset-bottom,0px));left:0;right:0;text-align:center;color:#c7d2fe;font-weight:600;transition:opacity .3s;animation:bob 1.6s ease-in-out infinite;pointer-events:none}
+@keyframes bob{50%{transform:translateY(6px)}}
+@media(max-width:760px){.links{display:none}.two{grid-template-columns:1fr}.dots{right:8px}}
+@media(prefers-reduced-motion:reduce){.story{height:auto!important}.stage{position:static;height:auto}.scene{position:relative;opacity:1;transform:none;pointer-events:auto;min-height:80vh}.msg,.tl li,.box li{opacity:1;transform:none}.rail{flex-wrap:wrap;width:auto;transform:none!important}.view{-webkit-mask-image:none;mask-image:none}#net,.dots,.hint{display:none}.cursor{animation:none}}
+
+/* ===== polish layer ===== */
+.glow{position:absolute;left:-500px;top:-500px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(129,140,248,.3),rgba(236,72,153,.12) 45%,transparent 68%);transform:translate(-50%,-50%);pointer-events:none}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.45;pointer-events:none;animation:drift 14s ease-in-out infinite alternate}
+.b1{width:340px;height:340px;background:#6366f1;left:-80px;top:12%}
+.b2{width:300px;height:300px;background:#ec4899;right:-60px;bottom:8%;animation-delay:-5s}
+.b3{width:240px;height:240px;background:#06b6d4;left:45%;top:-80px;animation-delay:-9s}
+@keyframes drift{to{transform:translate(70px,50px) scale(1.2)}}
+.scene::before{content:attr(data-t);position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:clamp(5rem,21vw,17rem);font-weight:800;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.08);white-space:nowrap;pointer-events:none;z-index:-1}
+.scene>*{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease;transition-delay:calc(var(--i,0)*.09s)}
+.scene.on>*{opacity:1;transform:none}
+.big b{background-image:linear-gradient(90deg,#818cf8,#f472b6,#fbbf24,#22d3ee,#818cf8);background-size:200% auto;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:200% center}}
+.orb{position:relative;width:132px;height:132px;display:grid;place-items:center;margin-bottom:6px}
+.orb::before{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(#818cf8,#f472b6,#fbbf24,#22d3ee,#818cf8);animation:spin 6s linear infinite;box-shadow:0 0 50px rgba(244,114,182,.5)}
+.core{position:relative;width:114px;height:114px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#312e81,#0b1020 70%);display:grid;place-items:center;font-size:2.4rem;font-weight:800;letter-spacing:-.03em}
+.orb i{position:absolute;left:50%;top:50%;font-style:normal;font-size:.72rem;font-weight:700;padding:2px 10px;border-radius:99px;background:rgba(15,23,42,.8);border:1px solid rgba(255,255,255,.4);transform:translate(-50%,-50%) rotate(var(--a)) translateX(100px) rotate(calc(-1*var(--a)));animation:orbit 10s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes orbit{to{transform:translate(-50%,-50%) rotate(calc(var(--a) + 360deg)) translateX(100px) rotate(calc(-1*(var(--a) + 360deg)))}}
+.stat,.box,.card{background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.05));backdrop-filter:blur(12px);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 10px 30px rgba(0,0,0,.25)}
+.btn.pri{box-shadow:0 8px 26px rgba(99,102,241,.5)}
+.track i{box-shadow:0 0 12px rgba(244,114,182,.5)}
+.count{position:absolute;left:22px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:5;font-weight:800;color:#c7d2fe;font-size:1.05rem;letter-spacing:.04em}
+.count small{color:#7c87c9;font-weight:600}
+@media(max-height:760px){.orb{transform:scale(.72);margin:-18px 0}}
+@media(prefers-reduced-motion:reduce){.scene>*{opacity:1;transform:none}.orb::before,.orb i,.blob,.big b{animation:none}.glow,.blob,.count{display:none}.orb i{transform:translate(-50%,-50%) rotate(var(--a)) translateX(100px) rotate(calc(-1*var(--a)))}}
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<header class="nav"><a class="logo" href="#top" id="logo"><span>Suman Yadav</span></a><nav class="links" id="links" aria-label="Sections"></nav></header>
+
+<div class="story" id="story">
+<div class="stage" id="stage">
+<canvas id="net" aria-hidden="true"></canvas>
+<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="glow" id="glow"></div>
+
+<section class="scene" data-t="Home">
+  <div class="orb" aria-hidden="true"><span class="core">SY</span><i style="--a:0deg">Python</i><i style="--a:120deg">NLP</i><i style="--a:240deg">React</i></div>
+  <p class="kick">Welcome to my portfolio</p>
+  <h1 class="big">Hi, I’m <b>Suman Yadav</b></h1>
+  <p class="lead"><span id="typed"></span><span class="cursor"></span></p>
+  <div class="btns"><button class="btn pri" data-go="4">See my projects</button><a class="btn" href="https://github.com/sumanyaadav58-dev" target="_blank" rel="noopener">GitHub</a><a class="btn" href="mailto:sumanyaadav58@gmail.com">Email me</a><a class="btn" href="assets/Suman_Yadav_CV.pdf" download>Download CV</a></div>
+</section>
+
+<section class="scene" data-t="Chatbots">
+  <h2 class="big">I build chatbots that <b>talk back</b></h2>
+  <div class="chat" id="chat" aria-label="Chatbot demo conversation"></div>
+</section>
+
+<section class="scene" data-t="About">
+  <p class="kick">About me</p>
+  <p class="words" id="words">I’m an MCA candidate at Chandigarh University with a B.Tech and a Diploma in Electronics and Communication. I build practical, user-focused apps with Python, NLP and the web.</p>
+  <div class="stats" id="stats"></div>
+</section>
+
+<section class="scene" data-t="Skills">
+  <h2 class="big">What I <b>work with</b></h2>
+  <div class="sk" id="sk"></div>
+  <div class="chips" id="chips"></div>
+</section>
+
+<section class="scene" data-t="Projects">
+  <h2 class="big">Things I’ve <b>built</b></h2>
+  <div class="view" id="view"><div class="rail" id="rail"></div></div>
+  <a class="btn" href="https://github.com/sumanyaadav58-dev?tab=repositories" target="_blank" rel="noopener">All 16 repositories on GitHub</a>
+</section>
+
+<section class="scene" data-t="Education">
+  <h2 class="big">My <b>journey</b></h2>
+  <ol class="tl" id="tl">
+    <li><b>Diploma, Electronics and Communication</b><span>HSBTE, Panchkula</span></li>
+    <li><b>B.Tech, Electronics and Communication Engineering</b><span>Geeta Engineering College, Kurukshetra University</span></li>
+    <li><b>Master of Computer Applications</b><span>Chandigarh University, Mohali</span><em>2025–2027 · Currently pursuing</em></li>
+  </ol>
+</section>
+
+<section class="scene" data-t="Achievements">
+  <h2 class="big">Wins and <b>learning</b></h2>
+  <div class="two">
+    <div class="box"><h3>Achievements</h3><ul><li>Finalist, university-level GDG Hackathon</li><li>Organizing team member, AI Fest Genesis X Hackathon</li></ul></div>
+    <div class="box"><h3>Certifications</h3><ul><li>Infosys Springboard (2025)</li><li>Python for Data Science Bootcamp, CodingWise (2025)</li><li>Outskill Generative AI Mastermind (2025)</li><li>Generative AI with LangChain and Hugging Face, Udemy</li><li>Coursera (2026)</li><li>Complete Reality X Bootcamp</li></ul></div>
+  </div>
+</section>
+
+<section class="scene" data-t="Contact">
+  <h2 class="big">Let’s <b>work together</b></h2>
+  <form id="cf" novalidate>
+    <label>Name<input id="n" autocomplete="name" placeholder="Your name"></label>
+    <label>Email<input id="e" type="email" autocomplete="email" placeholder="you@example.com"></label>
+    <label>Message<textarea id="m" rows="3" placeholder="How can I help?"></textarea></label>
+    <button class="btn pri" type="submit">Send message</button>
+    <p id="status" role="status"></p>
+  </form>
+  <p class="lead" style="font-size:.95rem">sumanyaadav58@gmail.com · +91 9671707276 · Panipat, Haryana</p>
+</section>
+
+<div class="count" id="count"></div><div class="dots" id="dots"></div><div class="hint" id="hint">Scroll to play ↓</div>
+</div>
+</div>
+
+<script>
+const GITHUB="https://github.com/sumanyaadav58-dev/";
+const PROJECTS=[
+ {n:"CHATBOT-EduGenie",c:"AI",l:"Python",r:"CHATBOT-EduGenie",d:"AI-based educational chatbot that uses NLP to answer student questions about study materials and course information."},
+ {n:"shortest-path-finder-",c:"Algorithms",l:"Python",r:"shortest-path-finder-",d:"Finds the shortest route between nodes in a weighted graph with Dijkstra’s algorithm, plus optional GUI visualization."},
+ {n:"College-Helpdesk-Chatbot-",c:"AI",l:"Python",r:"College-Helpdesk-Chatbot-",d:"Tkinter helpdesk chatbot that answers common college questions using rule-based regex matching."},
+ {n:"college-chatbot",c:"AI",l:"Python",r:"college-chatbot",d:"Tkinter chat interface with quick answers on admissions, courses, hostels and library hours."},
+ {n:"Airbnb-booking-app",c:"Web",l:"JavaScript",r:"Airbnb-booking-app",d:"Booking application in the style of Airbnb, built with JavaScript."},
+ {n:"yadavsumanportfolio",c:"Web",l:"JavaScript",r:"yadavsumanportfolio",d:"An earlier version of this personal portfolio website."}];
+const COL={AI:"#a5b4fc",Algorithms:"#fbbf24",Web:"#f9a8d4"};
+const STATS=[["6","Featured projects"],["16","GitHub repos"],["6","Certifications"],["2","Hackathons"]];
+const SKILLS=[["Python",85,"#818cf8,#a78bfa"],["Data structures and algorithms",78,"#f472b6,#fbbf24"],["NLP and chatbots",75,"#22d3ee,#34d399"],["Git and GitHub",72,"#fbbf24,#f87171"],["React.js and Bootstrap",65,"#818cf8,#22d3ee"],["Java and C++",62,"#f472b6,#a78bfa"],["MySQL",60,"#34d399,#22d3ee"]];
+const CHIPS=["Python","Java","C++","React.js","Bootstrap","MySQL","NLP","LangChain","Hugging Face","Git","VS Code"];
+const MSG=[["u","Which courses do you offer?"],["b","I can help with courses, admissions, hostels and the library."],["u","Tell me about admissions"],["b","Sure! I’ll walk you through the steps."]];
+
+const $=s=>document.querySelector(s);
+const mk=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e;};
+const scenes=[...document.querySelectorAll(".scene")],N=scenes.length,story=$("#story");
+const still=matchMedia("(prefers-reduced-motion:reduce)").matches;
+story.style.height=(N*100)+"vh";
+scenes.forEach((s,i)=>{s.style.setProperty("--h",(240+i*42)%360);[...s.children].forEach((c,k)=>c.style.setProperty("--i",k));});
+
+/* build content */
+MSG.forEach(([w,t])=>$("#chat").append(mk("div","msg "+w,t)));
+const words=$("#words");const wl=words.textContent.split(" ");words.textContent="";wl.forEach(w=>{words.append(mk("span","",w),document.createTextNode(" "));});
+const wsp=[...words.children].filter(x=>x.tagName==="SPAN");
+STATS.forEach(([v,l])=>{const s=mk("div","stat"),b=mk("b","",v);b.dataset.v=v;s.append(b,mk("span","",l));$("#stats").append(s);});
+SKILLS.forEach(([n,v,g])=>{const w=mk("div"),l=mk("div","l"),t=mk("div","track"),i=mk("i");l.append(mk("span","",n),mk("span","",v+"%"));i.style.background="linear-gradient(90deg,"+g+")";i.dataset.v=v;t.append(i);w.append(l,t);$("#sk").append(w);});
+CHIPS.forEach(c=>$("#chips").append(mk("span","chip",c)));
+PROJECTS.forEach(p=>{const c=mk("article","card"),a=mk("a","btn","View on GitHub");c.style.setProperty("--c",COL[p.c]);a.href=GITHUB+p.r;a.target="_blank";a.rel="noopener";c.append(mk("span","tag",p.c+" · "+p.l),mk("h3","",p.n),mk("p","",p.d),a);$("#rail").append(c);});
+const tli=[...document.querySelectorAll("#tl li")],boxli=[...document.querySelectorAll(".box li")];
+
+/* nav */
+const links=$("#links"),dots=$("#dots");
+function go(i){const total=story.offsetHeight-innerHeight;scrollTo({top:story.offsetTop+total*(i+.5)/N,behavior:still?"auto":"smooth"});}
+scenes.forEach((s,i)=>{const b=mk("button","",s.dataset.t);b.type="button";b.onclick=()=>go(i);links.append(b);const d=mk("i");d.title=s.dataset.t;dots.append(d);});
+document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>go(+b.dataset.go));
+$("#logo").onclick=e=>{e.preventDefault();scrollTo({top:0,behavior:"smooth"});};
+
+/* typing */
+const roles=["MCA Student","Python Developer","NLP and Chatbot Builder","Hackathon Finalist"];
+const ty=$("#typed");let ri=0,ci=0,del=false;
+if(still)ty.textContent=roles.join(" · ");else(function t(){const w=roles[ri];ci+=del?-1:1;ty.textContent=w.slice(0,ci);let ms=del?35:80;if(!del&&ci===w.length){del=true;ms=1400}else if(del&&ci===0){del=false;ri=(ri+1)%roles.length;ms=350}setTimeout(t,ms);})();
+
+/* particle network */
+const cv=$("#net"),cx=cv.getContext("2d");let W,H,mx=-999,my=-999;
+const size=()=>{W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;};size();
+$("#stage").addEventListener("pointermove",e=>{const gl=$("#glow"),q=$("#stage").getBoundingClientRect();gl.style.left=(e.clientX-q.left)+"px";gl.style.top=(e.clientY-q.top)+"px";const r=cv.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;});
+const cols=["#818cf8","#22d3ee","#f472b6","#fbbf24"];
+const P=Array.from({length:60},(_,i)=>({x:Math.random()*1200,y:Math.random()*800,vx:(Math.random()-.5)*.6,vy:(Math.random()-.5)*.6,c:cols[i%4]}));
+function loop(){cx.clearRect(0,0,W,H);
+ P.forEach((p,i)=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+  const dx=p.x-mx,dy=p.y-my,d=Math.hypot(dx,dy);if(d<110){p.x+=dx/d*2;p.y+=dy/d*2;}
+  cx.fillStyle=p.c;cx.beginPath();cx.arc(p.x,p.y,2.4,0,6.3);cx.fill();
+  for(let j=i+1;j<P.length;j++){const q=P[j],k=Math.hypot(p.x-q.x,p.y-q.y);if(k<120){cx.strokeStyle="rgba(165,180,252,"+(1-k/120)*.45+")";cx.beginPath();cx.moveTo(p.x,p.y);cx.lineTo(q.x,q.y);cx.stroke();}}});
+ requestAnimationFrame(loop);}
+if(!still)loop();
+
+/* scroll driver: each scene gets a progress value */
+let cur=-1;const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+function update(){
+ const total=story.offsetHeight-innerHeight,p=clamp((scrollY-story.offsetTop)/Math.max(1,total));
+ const s=Math.min(N-1,Math.floor(p*N)),lp=p*N-s;
+ const g=i=>still?1:s>i?1:s<i?0:clamp(lp*1.25);
+ if(s!==cur){cur=s;scenes.forEach((x,i)=>x.classList.toggle("on",i===s));[...dots.children].forEach((d,i)=>d.classList.toggle("on",i===s));[...links.children].forEach((b,i)=>b.classList.toggle("on",i===s));}
+ $("#bar").style.width=(p*100)+"%";$("#count").innerHTML=String(s+1).padStart(2,"0")+" <small>/ "+String(N).padStart(2,"0")+" · "+scenes[s].dataset.t+"</small>";$("#hint").style.opacity=p<.03?1:0;
+ const c=g(1);[...$("#chat").children].forEach((m,i)=>m.classList.toggle("in",c>i/MSG.length+.02));
+ const a=g(2);document.querySelectorAll(".stat b").forEach(b=>b.textContent=Math.round(b.dataset.v*clamp(a*1.8)));wsp.forEach((w,i)=>w.classList.toggle("lit",a>i/wsp.length));
+ const k=g(3);[...document.querySelectorAll(".track i")].forEach((i,n)=>i.style.width=(clamp(k*1.9-n*.15)*i.dataset.v)+"%");
+ const pr=g(4),rail=$("#rail"),vw=$("#view").clientWidth,max=Math.max(0,rail.scrollWidth-vw);rail.style.transform="translateX("+(-max*pr)+"px)";
+ const j=g(5);tli.forEach((l,i)=>l.classList.toggle("in",j>i/tli.length+.02));
+ const h=g(6);boxli.forEach((l,i)=>l.classList.toggle("in",h>i/boxli.length+.05));
+}
+addEventListener("scroll",update,{passive:true});addEventListener("resize",()=>{size();update();});update();
+
+/* card hover: spotlight + tilt */
+document.addEventListener("pointermove",e=>{const c=e.target.closest&&e.target.closest(".card");if(!c)return;
+ const r=c.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;c.style.setProperty("--mx",x+"px");c.style.setProperty("--my",y+"px");
+ if(!still)c.style.transform="perspective(700px) rotateX("+((y/r.height-.5)*-8)+"deg) rotateY("+((x/r.width-.5)*8)+"deg) translateY(-5px)";});
+document.addEventListener("pointerout",e=>{const c=e.target.closest&&e.target.closest(".card");if(c&&!c.contains(e.relatedTarget))c.style.transform="";});
+
+/* contact: backend if present, otherwise email app */
+$("#cf").addEventListener("submit",async ev=>{ev.preventDefault();
+ const name=$("#n").value.trim(),email=$("#e").value.trim(),message=$("#m").value.trim(),st=$("#status");
+ if(!name||!/^\S+@\S+\.\S+$/.test(email)||!message){st.style.color="#fca5a5";st.textContent="Enter your name, a valid email and a message.";return;}
+ st.style.color="#6ee7b7";st.textContent="Sending…";
+ try{const r=await fetch("/api/contact",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name,email,message})});const j=await r.json();if(!r.ok||!j.ok)throw 0;st.textContent="Message sent. Thank you, "+name+"!";ev.target.reset();}
+ catch{st.textContent="Opening your email app to send it instead.";location.href="mailto:sumanyaadav58@gmail.com?subject="+encodeURIComponent("Portfolio message from "+name)+"&body="+encodeURIComponent(message+"\n\n"+name+" ("+email+")");}});
+</script>
+</body>
+</html>

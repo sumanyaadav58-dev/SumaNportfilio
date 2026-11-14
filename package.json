@@ -1,0 +1,9 @@
+{
+  "name": "suman-yadav-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio dashboard for Suman Yadav",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" },
+  "dependencies": { "express": "^4.19.2" }
+}
